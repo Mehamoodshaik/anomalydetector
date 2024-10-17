@@ -76,6 +76,20 @@ The program will start fetching real-time cryptocurrency price data, detect anom
   ```
 
 
+## Algorithm: Sliding Window with Standard Deviation for Anomaly Detection
+
+This project uses a **sliding window** anomaly detection algorithm based on statistical measures of central tendency (mean) and variability (standard deviation). Here's how it works:
+
+- A **sliding window** of a fixed size (e.g., 20 recent data points) is maintained, containing the latest cryptocurrency prices.
+- The algorithm calculates the **mean** and **standard deviation** of the prices within this window.
+- Prices are classified as **anomalies** if they fall outside of a pre-defined threshold. This threshold is set as a certain number of standard deviations away from the mean. In this case, 3 standard deviations are used, which captures the majority of data in a normal distribution (99.7%).
+
+### Why This Algorithm?
+- This method is simple yet effective for detecting sudden price spikes or drops in a data stream.
+- It dynamically adjusts based on recent price data, making it well-suited for real-time monitoring.
+- By leveraging standard deviation, the algorithm accounts for natural variations in the data while identifying points that are statistically uncommon.
+
+The sliding window approach allows the system to focus on the most recent price movements, which is crucial for timely detection in volatile markets like cryptocurrency.
 
 
 
